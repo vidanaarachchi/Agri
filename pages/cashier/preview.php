@@ -58,17 +58,17 @@ for($i=0; $row = $result->fetch(); $i++){
 <div class="content" id="content" style="text-align:center;">
 	<div style="margin: 0 auto; padding: 20px; width: 700px; font-weight: normal; text-align:center;">
 		<div style="width: 100%;">
-			<div style="width: 459px; padding-left:125px;">
-			<p><b>SAMARAKOON AGRI SERVICES</b></p>
-	No:831/B, PERADENIYA ROAD (Opposite Kingswood College) MULGAMPOLA, </br>
-	KANDY, SRI LANKA<br>
+			<div style="width: 500px; padding-left:125px;">
+			<h3><b>SAMARAKOON AGRI SERVICES</b></h3>
+	No:831/B, PERADENIYA ROAD (Opposite Kingswood College) MULGAMPOLA,KANDY, SRI LANKA<br>
 	
-	Contact No: 0812 232 586<br>
-	Fax: 0812 228 052 <br>
-	Mobile: 0714 33 63 60 </br>
-	Email : samseeds@sltnet.lk<br>
-					<div>
-						<?php
+	Contact No: 0812 232 586 | Fax: 0812 228 052 <br> 
+	Mobile: 0714 33 63 60 | Email : samseeds@sltnet.lk<br>
+					
+				</div>
+			</div>
+			<div style="width: 100%">
+			<?php
 						$resulta = $db->prepare("SELECT * FROM customer WHERE customer_name= :a");
 						$resulta->bindParam(':a', $cname);
 						$resulta->execute();
@@ -79,19 +79,19 @@ for($i=0; $row = $result->fetch(); $i++){
 						?>
 
 						<p>----------------------------------------------------------------------</p>
-						<table border="0" cellpadding="4" cellspacing="0" style="font-family: arial; font-size: 15px;text-align:center;width : 100%;">
+						<table border="0" cellpadding="4" cellspacing="3" style="font-family: arial; font-size: 15px;text-align:center;" width="100%">
 							<tr>
-								<td width="25%">Received From : </td>
-								<td width="75%"><?php echo $cname ?></td>
+								<td ><b>Received From: </b></td>
+								<td ><?php echo $cname ?></td>
+								
+								<td ><b>Invoice Number: </b></td>
+								<td ><?php echo $invoice ?></td>
+								
 							</tr>
 							
 						</table>
 
-						<p>----------------------------------------------------------------------</p>
-					</div>
-				</div>
-			</div>
-			<div style="width: 100%">
+		
 				<table border="1" cellpadding="4" cellspacing="0" style="font-family: arial; font-size: 15px;text-align:left;" width="100%">
 					<thead>
 						<tr>
@@ -241,8 +241,14 @@ for($i=0; $row = $result->fetch(); $i++){
 					</tbody>
 				</table>
 			</div>
-
-			<div style="text-align: right; margin-top: 13px;">Cashier : <?php echo $cashier ?></div>
+			<table border="0" cellpadding="4" cellspacing="3" style="font-family: arial; font-size: 15px;text-align:center;" width="100%">
+							<tr>
+							<td style="text-align: left; margin-top: 13px;">Date : <?php echo $date ?> </td>
+							<td style="text-align: right; ">Cashier : <?php echo $cashier ?></td>
+							</tr>
+							
+						</table>
+			
 		</div>
 	</div>
 

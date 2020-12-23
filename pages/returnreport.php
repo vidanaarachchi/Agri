@@ -67,7 +67,7 @@ require_once('auth.php');
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Sales Report</h1>
+                    <h1 class="page-header">Item Returned</h1>
                 </div>
                 <div id="maintable">
                     <div style="margin-top: -19px; margin-bottom: 21px;">
@@ -76,28 +76,29 @@ require_once('auth.php');
                         <thead>
                             <tr>
                                 <th > Transaction ID </th>
-                                <th > Date </th>
-                                <th > Customer Name </th>
                                 <th > Invoice Number </th>
+                                <th > Cashier </th>
+                                <th > Date Purchase </th>
                                 <th > Type of Payment </th>
-                                <th > Total Sales </th>
+                                <th > Cash </th>
                                 <th > Balance </th>
-                                <th > Action </th>
+                                <th > Note </th>
+                                
                             </tr>
                         </thead>
                         <tbody>
 
                             <?php
                             include('connect.php');
-                            $result = $db->prepare("SELECT * FROM sales ORDER BY transaction_id");
+                            $result = $db->prepare("SELECT * FROM return_products ORDER BY trance_id");
                             $result->execute();
                             for($i=0; $row = $result->fetch(); $i++){
                                 ?>
                                 <tr class="record">
-                                    <td>STI-000<?php echo $row['transaction_id']; ?></td>
+                                    <td><?php echo $row['trance_id']; ?></td>
+                                    <td><?php echo $row['invoive_no']; ?></td>
+                                    <td><?php echo $row['cashier']; ?></td>
                                     <td><?php echo $row['date']; ?></td>
-                                    <td><?php echo $row['name']; ?></td>
-                                    <td><?php echo $row['invoice_number']; ?></td>
                                     <td><?php echo $row['type']; ?></td>
                                     <td><?php
                                         $dsdsd=$row['amount'];
@@ -109,15 +110,8 @@ require_once('auth.php');
                                         echo formatMoney($d, true);
                                         ?>
                                     </td>
-                                    <td>
-                                        <a href="#" id="<?php echo $row['transaction_id']; ?>" class="btn btn-danger delbutton" title="Click To Delete">
-                                            <span><i class="fa fa-trash"></i></span>
-                                        </a>
-                                        &nbsp;
-                                        <a class="btn btn-primary" href="salesprint.php?id=<?php echo $row['invoice_number']; ?>">
-                                            <span><i class="fa fa-print"></i></span>
-                                        </a>
-                                    </td>
+                                    <td><?php echo $row['note']; ?></td>
+                                   
                                 </tr>
                                 <?php
                             }
@@ -143,7 +137,7 @@ require_once('auth.php');
                                         }
                                         return $number;
                                     }
-                                    $results = $db->prepare("SELECT sum(amount) FROM sales");
+                                    $results = $db->prepare("SELECT sum(amount) FROM return_products ");
                                     $results->execute();
                                     for($i=0; $rows = $results->fetch(); $i++){
                                         $dsdsd=$rows['sum(amount)'];
@@ -159,7 +153,7 @@ require_once('auth.php');
                               <th colspan="1" style="border-top:1px solid #999999">
                                   <th colspan="2" style="border-top:1px solid #999999"> 
                                      <?php
-                                     $results = $db->prepare("SELECT sum(balance) FROM sales ");
+                                     $results = $db->prepare("SELECT sum(balance) FROM return_products ");
                                      $results->execute();
                                      for($i=0; $rows = $results->fetch(); $i++){
                                         $dsdsd=$rows['sum(balance)'];

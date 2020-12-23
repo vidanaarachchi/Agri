@@ -116,7 +116,10 @@ $finalcode='RS-'.createRandomPassword();
 								<a  href="product_lose.php" style="color: #004d1a;"> List of Product Expired</a>
 							</li>
 							<li>
-								<a  href="returned.php" style="color: #004d1a;"> Report of Returned Products</a>
+								<a  href="returnreport.php" style="color: #004d1a;"> Report of Item Returnes</a>
+							</li>
+							<li>
+								<a  href="returned.php" style="color: #004d1a;"> Report of Stock Returnes</a>
 							</li>
 							<li>
 								<a  href="search_customer.php" style="color: #004d1a;"> Customer Transaction Record</a>

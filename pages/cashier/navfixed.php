@@ -72,6 +72,18 @@ $finalcode='RS-'.createRandomPassword();
 							<li>
 								<a href="sales.php?id=credit&invoice=<?php echo $finalcode ?>"style="color: #004d1a;">Credit</a>
 							</li>
+
+                          <!-- Return Product-->
+							<li>
+								<a href="return.php?id=Return"style="color: #004d1a;">Return Product</a>
+							</li>
+
+                          <!--Discount Loss--> 
+							<li>
+								<a href="discount.php?id=Return"style="color: #004d1a;">Discount</a>
+							</li>
+
+
 						</ul>
 					</li>
 				</div>

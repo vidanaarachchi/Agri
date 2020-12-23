@@ -204,6 +204,7 @@ require_once('auth.php');
               </tbody>
             </table><br>
             <a rel="facebox" class = "btn btn-primary" href="checkout.php?pt=<?php echo $_GET['id']?>&invoice=<?php echo $_GET['invoice']?>&total=<?php echo $fgfg ?>&cashier=<?php echo $session_cashier_name?>&p_amount=<?php echo $ccc?>">Check Out</a>
+            <a class="btn btn-primary" href="updatesaleform.php">Update</a>
 
 
             <div class="clearfix"></div>
